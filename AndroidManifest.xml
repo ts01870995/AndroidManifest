@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.atmel.bleanalyser"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-sdk  tools:overrideLibrary=" com.microchip.bluetoothsmartdiscover"/>
+
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
+
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name="com.microchip.bleanalyser.BLEApplication"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:label="@string/app_name"
+        android:icon="@drawable/app_icon"
+        android:largeHeap="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:theme">
+
+        <activity
+            android:name="com.microchip.bleanalyser.SplashScreen"
+            android:configChanges="orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+        android:name="com.microchip.profilescreens.SerialPort"
+        android:configChanges="orientation|screenSize"
+        android:label="Custom Serial Chat" />
+        <activity
+        android:name="com.microchip.bleanalyser.HomeScreen"
+        android:configChanges="orientation|screenSize"
+        android:label="@string/app_name" />
+        <activity
+        android:name="com.microchip.bleanalyser.Dashboard"
+        android:configChanges="orientation|screenSize"
+        android:label="@string/action_text_dash" />
+        <activity
+        android:name="com.microchip.bleanalyser.ServiceListActivity"
+        android:configChanges="orientation|screenSize"
+        android:label="Service List"
+        android:launchMode="singleTask" />
+        <activity
+        android:name="com.microchip.profilescreens.HealthThermometer"
+        android:configChanges="orientation|screenSize"
+        android:label="Health Thermometer"/>
+        <activity
+        android:name="com.microchip.profilescreens.ImmediateAlert"
+        android:label="Immediate Alert"/>
+        <activity
+        android:name="com.microchip.bleanalyser.ProximitySettingsActivity"
+        android:configChanges="orientation|screenSize"
+        android:label="Settings" />
+        <activity
+        android:name="com.microchip.profilescreens.LinkLossAlert"
+        android:configChanges="orientation|screenSize"
+        android:label="Link Loss" />
+        <activity
+        android:name="com.microchip.profilescreens.TxPower"
+        android:configChanges="orientation|screenSize"
+        android:label="Tx Power" />
+        <activity
+        android:name="com.microchip.bleanalyser.FilterSettingsActivity"
+        android:configChanges="orientation|screenSize"
+        android:label="Settings" />
+        <activity
+        android:name="com.microchip.profilescreens.FindMe"
+        android:configChanges="orientation|screenSize"
+        android:label="Find Me" />
+        <activity
+        android:name="com.microchip.profilescreens.HeartRate"
+        android:configChanges="orientation|screenSize"
+        android:label="Heart Rate" />
+        <activity
+        android:name="com.microchip.profilescreens.BloodPressure"
+        android:configChanges="orientation|screenSize"
+        android:label="Blood Pressure"/>
+
+        <service
+        android:name="com.atmel.blecommunicator.com.atmel.Connection.BLEConnection"
+        android:enabled="true" />
+
+        <activity
+        android:name="com.microchip.profilescreens.DeviceInformation"
+
+        android:label="@string/title_activity_device_information" />
+        <activity
+        android:name="com.microchip.profilescreens.ScanParameter"
+        android:label="@string/title_activity_scan_paramter"
+        android:windowSoftInputMode="stateHidden|adjustPan" />
+
+        <activity
+        android:name="com.microchip.profilescreens.BatteryService"
+        android:label="@string/title_activity_battery_level" />
+        <activity
+        android:name="com.microchip.profilescreens.CurrentTime"
+        android:label="@string/time" />
+
+        <activity
+        android:name="com.microchip.profilescreens.PhoneAlert"
+        android:label="@string/phone_alert" />
+
+        <activity
+        android:name="com.microchip.profilescreens.AlertNotification"
+        android:label="@string/alert_notification" />
+
+        <activity
+        android:name="com.microchip.profilescreens.OTAU.OTAUHomeScreen"
+        android:label="@string/otau_home_label" />
+
+        <activity
+        android:name="com.microchip.profilescreens.OTAU.OTAUFilesListingActivity"
+        android:label="@string/otau_file_label" />
+
+        <activity
+        android:name="com.microchip.profilescreens.OTAU.OTAUServiceStatus"
+        android:label="@string/otau_label" />
+
+        <activity
+        android:name="com.microchip.profilescreens.gattdb.GattDbService"
+        android:label="@string/gattdb_label" />
+
+        <activity
+        android:name="com.microchip.profilescreens.gattdb.GattDbCharacteristic"
+        android:label="@string/gattdb_label" />
+
+        <service
+        android:name="com.microchip.services.AnsService"
+        android:enabled="true" />
+
+        <service
+        android:name="com.microchip.services.TimeService"
+        android:enabled="true" />
+
+        <service
+        android:name="com.microchip.services.SPPService"
+        android:enabled="true" />
+        <service
+        android:name="com.microchip.services.PAService"
+        android:enabled="true" />
+
+    </application>
+
+</manifest>
+
+
